@@ -1,0 +1,328 @@
+/* Animations for Capybara Date Invitation Website */
+
+/* Keyframe Animations */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(14deg);
+    }
+    20% {
+        transform: rotate(-8deg);
+    }
+    30% {
+        transform: rotate(14deg);
+    }
+    40% {
+        transform: rotate(-4deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    60% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        transform: scaleY(1);
+    }
+    10% {
+        transform: scaleY(0.1);
+    }
+    12% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes walk {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-3px) rotate(3deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-3px) rotate(-3deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes pawPrint {
+    0% {
+        opacity: 0.8;
+        transform: scale(0.8);
+    }
+    70% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Applied Animations */
+
+/* Hero Capybara */
+#heroCapybara {
+    transform-origin: bottom center;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Implement JavaScript-controlled animations */
+.wave-arm {
+    animation: wave 2s ease-in-out;
+}
+
+.blink-eyes {
+    animation: blink 4s infinite;
+}
+
+/* Card Animations */
+#capybaraCard {
+    animation: slideUp 0.5s ease-out 0.1s both;
+}
+
+#purpleCard {
+    animation: slideUp 0.5s ease-out 0.3s both;
+}
+
+#hummusCard {
+    animation: slideUp 0.5s ease-out 0.5s both;
+}
+
+/* Location Markers */
+.route-capybara.walking {
+    animation: walk 0.5s linear infinite;
+}
+
+/* About Section */
+#heartCapybara {
+    animation: pulse 4s ease-in-out infinite;
+}
+
+/* Gallery Items */
+.gallery-item:nth-child(odd) .polaroid {
+    --rotation: -2deg;
+}
+
+.gallery-item:nth-child(even) .polaroid {
+    --rotation: 2deg;
+}
+
+.gallery-item:nth-child(3n) .polaroid {
+    --rotation: -1deg;
+}
+
+.gallery-item:hover .polaroid {
+    --rotation: 0deg;
+}
+
+/* RSVP Capybara */
+#rsvpCapybara {
+    animation: float 5s ease-in-out infinite;
+}
+
+.happy-dance {
+    animation: pulse 0.3s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+/* Guide Capybara */
+.guide-capybara.thinking img {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.guide-capybara.pointing img {
+    animation: float 2s ease-in-out infinite;
+}
+
+/* Shimmer Effect */
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* Confetti Animation */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--deep-purple);
+    opacity: 0.8;
+    animation: confettiFall linear forwards;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(102, 51, 153, 0.2);
+    border-top-color: var(--deep-purple);
+    border-radius: 50%;
+    animation: rotate 1s linear infinite;
+}
+
+/* Media Query for Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    #heroCapybara,
+    #heartCapybara,
+    #rsvpCapybara,
+    .route-capybara.walking,
+    .guide-capybara.thinking img,
+    .guide-capybara.pointing img,
+    .shimmer,
+    .confetti {
+        animation: none !important;
+    }
+    
+    .card {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+}

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nalin's Capybara Adventure Invitation</title>
+    <meta name="description" content="A special San Francisco adventure featuring capybaras, purple discoveries, and the best hummus in town.">
+    <meta name="keywords" content="date invitation, San Francisco, capybara, purple, hummus">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+<body>
+    <div class="cursor-container">
+        <canvas id="pawPrintCanvas"></canvas>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="images/capybara-logo.png" alt="Capybara Logo" width="40" height="40">
+            <span>CapyDate</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#map">Our Route</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#rsvp">RSVP</a></li>
+            </ul>
+        </nav>
+        <div class="settings">
+            <button id="audioToggle" aria-label="Toggle audio">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M12 4L8 8H4V16H8L12 20V4Z" fill="currentColor"/>
+                    <path d="M16 8.5C17.2 9.7 18 11.3 18 13C18 14.7 17.2 16.3 16 17.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <button id="themeToggle" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM12 20C7.6 20 4 16.4 4 12C4 7.6 7.6 4 12 4C16.4 4 20 7.6 20 12C20 16.4 16.4 20 12 20Z" fill="currentColor"/>
+                    <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7V17Z" fill="currentColor"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-capybara">
+                    <img src="images/hero-capybara.png" alt="Friendly capybara with purple bow tie" id="heroCapybara">
+                </div>
+                <div class="hero-text">
+                    <h1>Nalin, Will You Join Me for a San Francisco Adventure?</h1>
+                    <p>A day of capybaras, purple discoveries & hummus delights awaits!</p>
+                    <a href="#overview" class="scroll-prompt">
+                        Scroll to explore our day
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path d="M12 15L18 9L16.6 7.6L12 12.2L7.4 7.6L6 9L12 15Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Date Overview Cards -->
+        <section id="overview" class="overview-section">
+            <div class="overview-cards">
+                <div class="card" id="capybaraCard">
+                    <div class="card-icon">
+                        <img src="images/capybara-icon.png" alt="Capybara icon">
+                    </div>
+                    <h2>Meet Real Capybaras</h2>
+                    <p>Start our day with these adorable creatures at the San Francisco Zoo. Did you know they're the world's most friendly animals? (Just like our date will be!)</p>
+                </div>
+                <div class="card" id="purpleCard">
+                    <div class="card-icon">
+                        <img src="images/purple-icon.png" alt="Purple icon">
+                    </div>
+                    <h2>Experience Purple Adventures</h2>
+                    <p>From purple-hued cocktails to violet vistas, we'll discover the city's most beautiful purple-themed experiences.</p>
+                </div>
+                <div class="card" id="hummusCard">
+                    <div class="card-icon">
+                        <img src="images/hummus-icon.png" alt="Hummus icon">
+                    </div>
+                    <h2>Taste SF's Best Hummus</h2>
+                    <p>We'll sample extraordinary Mediterranean cuisine featuring the creamiest, most delicious hummus San Francisco has to offer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map Section -->
+        <section id="map" class="map-section">
+            <h2>Our Adventure Awaits</h2>
+            <p class="section-intro">I've planned a day that combines San Francisco's most wonderful experiences with capybaras, purple discoveries, and amazing food. Hover over each location to learn more about our adventure.</p>
+            
+            <div class="map-container">
+                <div class="map" id="sfMap">
+                    <!-- The map and route will be drawn via JavaScript -->
+                    <img src="images/sf-map-base.png" alt="Map of San Francisco" class="map-base">
+                    <svg class="route-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+                        <path id="routePath" d="M150,150 C200,100 300,120 350,200 S450,300 500,250 S600,200 650,300" stroke="#663399" stroke-width="5" fill="none" stroke-dasharray="8,3"/>
+                    </svg>
+                    
+                    <!-- Location markers, will be positioned absolutely -->
+                    <div class="location-marker" id="location1" data-location="sf-zoo" style="top: 15%; left: 20%;">
+                        <div class="marker-icon">
+                            <img src="images/zoo-capybara.png" alt="Zoo Capybara">
+                        </div>
+                        <div class="location-card">
+                            <h3>San Francisco Zoo & Gardens</h3>
+                            <p class="time">9:30 AM</p>
+                            <p>We'll start our day with a special morning visit to meet the capybaras! These sociable creatures are known as nature's best friends - they get along with every animal they meet.</p>
+                            <p class="secret">(Secretly, I think they're the perfect mascot for a first date.)</p>
+                        </div>
+                    </div>
+
+                    <div class="location-marker" id="location2" data-location="ritual-coffee" style="top: 25%; left: 35%;">
+                        <div class="marker-icon">
+                            <img src="images/coffee-capybara.png" alt="Coffee Capybara">
+                        </div>
+                        <div class="location-card">
+                            <h3>Ritual Coffee Roasters</h3>
+                            <p class="time">11:30 AM</p>
+                            <p>After our capybara encounter, we'll recharge at this beloved café with its purple-accented decor. Their Mediterranean breakfast bowl with house-made hummus pairs perfectly with their specialty coffee.</p>
+                            <p>A moment to relax and connect before our next adventure.</p>
+                        </div>
+                    </div>
+
+                    <div class="location-marker" id="location3" data-location="cal-academy" style="top: 40%; left: 45%;">
+                        <div class="marker-icon">
+                            <img src="images/science-capybara.png" alt="Science Capybara">
+                        </div>
+                        <div class="location-card">
+                            <h3>California Academy of Sciences</h3>
+                            <p class="time">1:00 PM</p>
+                            <p>We'll explore cutting-edge exhibits at this innovative science museum. The planetarium and rainforest dome are must-sees, and I've heard the aquarium features some incredible purple bioluminescent creatures.</p>
+                            <p>For the tech enthusiast in you - their projection systems are state-of-the-art!</p>
+                        </div>
+                    </div>
+
+                    <div class="location-marker" id="location4" data-location="yerba-buena" style="top: 55%; left: 60%;">
+                        <div class="marker-icon">
+                            <img src="images/garden-capybara.png" alt="Garden Capybara">
+                        </div>
+                        <div class="location-card">
+                            <h3>Yerba Buena Gardens</h3>
+                            <p class="time">3:30 PM</p>
+                            <p>A peaceful stroll through these beautiful gardens featuring public art and purple blooms (season permitting). I've arranged a small picnic with local sourdough and artisanal purple beet hummus.</p>
+                            <p>The perfect afternoon interlude.</p>
+                        </div>
+                    </div>
+
+                    <div class="location-marker" id="location5" data-location="truly-mediterranean" style="top: 70%; left: 50%;">
+                        <div class="marker-icon">
+                            <img src="images/hummus-capybara.png" alt="Hummus Capybara">
+                        </div>
+                        <div class="location-card">
+                            <h3>Truly Mediterranean</h3>
+                            <p class="time">6:00 PM</p>
+                            <p>Dinner at one of San Francisco's most beloved Mediterranean restaurants. Their falafel is legendary, and the hummus is simply extraordinary.</p>
+                            <p>Come hungry - this place is known for generous portions!</p>
+                        </div>
+                    </div>
+
+                    <div class="location-marker" id="location6" data-location="urban-putt" style="top: 80%; left: 35%;">
+                        <div class="marker-icon">
+                            <img src="images/golf-capybara.png" alt="Golf Capybara">
+                        </div>
+                        <div class="location-card">
+                            <h3>Urban Putt</h3>
+                            <p class="time">8:00 PM</p>
+                            <p>This unique indoor mini-golf course was designed by tech artists and engineers. Many holes feature purple lighting and incredible interactive elements.</p>
+                            <p>A bit of playful competition to keep things interesting!</p>
+                        </div>
+                    </div>
+
+                    <div class="location-marker" id="location7" data-location="view-lounge" style="top: 65%; left: 25%;">
+                        <div class="marker-icon">
+                            <img src="images/cocktail-capybara.png" alt="Cocktail Capybara">
+                        </div>
+                        <div class="location-card">
+                            <h3>The View Lounge</h3>
+                            <p class="time">10:00 PM</p>
+                            <p>We'll end our evening with craft cocktails at this upscale lounge on the 39th floor, offering breathtaking views of the city lights. Their signature purple-hued drinks are both beautiful and delicious.</p>
+                            <p>The perfect setting to reflect on our day of adventures.</p>
+                        </div>
+                    </div>
+
+                    <!-- Route capybara -->
+                    <div id="routeCapybara" class="route-capybara">
+                        <img src="images/route-capybara.png" alt="Tiny capybara walking along route">
+                    </div>
+                </div>
+                
+                <button id="previewRoute" class="preview-button">
+                    <span>Preview Our Day</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                        <path d="M16.01 11H4V13H16.01V16L20 12L16.01 8V11Z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- About The Date Section -->
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <div class="about-capybara">
+                    <img src="images/heart-capybara.png" alt="Capybara holding heart" id="heartCapybara">
+                </div>
+                <div class="about-text">
+                    <h2>Why I Planned This For You</h2>
+                    <div class="message-container">
+                        <p class="greeting">Nalin,</p>
+                        <p>When planning this day, I thought about creating something unique that might make you smile. Your Twitter conversations about technology and innovation inspired me to find places in San Francisco that blend creativity and technical ingenuity.</p>
+                        <p>The capybaras? Well, they reminded me of how the best connections happen naturally and without pretense. The purple theme adds a touch of the unexpected to our journey, and the hummus... because good conversation deserves equally good food!</p>
+                        <p>This day is designed with thoughtful details and flexibility - a framework for us to enjoy San Francisco while getting to know each other better.</p>
+                        <p>What do you say? Ready for a capybara-approved adventure?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Preview Section -->
+        <section id="gallery" class="gallery-section">
+            <h2>Glimpses of Our Day</h2>
+            <p class="section-intro">Here's a preview of the places we'll explore together. Each location has been selected to create a memorable San Francisco experience.</p>
+            
+            <div class="gallery-container">
+                <div class="gallery-item" data-location="sf-zoo">
+                    <div class="polaroid">
+                        <img src="images/gallery-zoo.jpg" alt="San Francisco Zoo">
+                        <div class="caption">Where we'll meet the world's most sociable rodents</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-location="ritual-coffee">
+                    <div class="polaroid">
+                        <img src="images/gallery-coffee.jpg" alt="Ritual Coffee">
+                        <div class="caption">Purple-accented café with amazing hummus plates</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-location="cal-academy">
+                    <div class="polaroid">
+                        <img src="images/gallery-academy.jpg" alt="California Academy of Sciences">
+                        <div class="caption">Wonder and innovation under one living roof</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-location="yerba-buena">
+                    <div class="polaroid">
+                        <img src="images/gallery-gardens.jpg" alt="Yerba Buena Gardens">
+                        <div class="caption">Urban oasis with purple blooms and art</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-location="truly-mediterranean">
+                    <div class="polaroid">
+                        <img src="images/gallery-hummus.jpg" alt="Truly Mediterranean">
+                        <div class="caption">Home of SF's most extraordinary hummus</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-location="urban-putt">
+                    <div class="polaroid">
+                        <img src="images/gallery-putt.jpg" alt="Urban Putt">
+                        <div class="caption">Tech-designed mini-golf with purple lighting</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-location="view-lounge">
+                    <div class="polaroid">
+                        <img src="images/gallery-lounge.jpg" alt="The View Lounge">
+                        <div class="caption">Purple cocktails with a panoramic backdrop</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section id="rsvp" class="rsvp-section">
+            <div class="rsvp-container">
+                <div class="rsvp-capybara">
+                    <img src="images/rsvp-capybara.png" alt="Capybara holding invitation sign" id="rsvpCapybara">
+                </div>
+                
+                <h2>Will You Join Me?</h2>
+                
+                <p class="invitation-text">I've planned this day with care, hoping to create something special for us to share. No pressure - just an invitation for a unique San Francisco adventure.</p>
+                
+                <div class="rsvp-buttons">
+                    <button id="rsvpYes" class="rsvp-button yes-button">
+                        Yes, I'd Love To!
+                    </button>
+                    <button id="rsvpCheck" class="rsvp-button check-button">
+                        I Need To Check My Schedule
+                    </button>
+                </div>
+                
+                <div id="rsvpResponse" class="rsvp-response"></div>
+                
+                <div id="rescheduleForm" class="reschedule-form">
+                    <h3>Let me know what works for you:</h3>
+                    <form id="dateForm">
+                        <div class="form-group">
+                            <label for="preferredDate">Preferred Date:</label>
+                            <input type="date" id="preferredDate" name="preferredDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="alternateDate">Alternate Date (optional):</label>
+                            <input type="date" id="alternateDate" name="alternateDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Any other thoughts?</label>
+                            <textarea id="message" name="message" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Send Response</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Created with ♥ for Nalin</p>
+            <button id="whyCapybaras" class="secret-button">Why capybaras?</button>
+        </div>
+        
+        <div id="secretExplanation" class="secret-explanation">
+            <h3>Why capybaras for our date theme?</h3>
+            <p>Because:</p>
+            <ol>
+                <li>They're incredibly sociable animals who get along with everyone they meet</li>
+                <li>They're relaxed and unhurried, enjoying life's simple pleasures</li>
+                <li>They're unexpectedly charming once you get to know them</li>
+                <li>They look adorable in purple bow ties</li>
+            </ol>
+            <p>Much like a good first date, capybaras are about creating comfortable connections and enjoying the moment together!</p>
+        </div>
+    </footer>
+
+    <!-- Guide Capybara -->
+    <div id="guideCapybara" class="guide-capybara">
+        <img src="images/guide-capybara.png" alt="Guide capybara with purple hat">
+        <div class="speech-bubble">
+            <p id="guideSpeech">Hi! I'm Cappy, your guide to this capybara-themed invitation. Click me anytime you need help or want to learn more about our planned adventure!</p>
+        </div>
+    </div>
+
+    <!-- Hidden Capybara Facts -->
+    <div id="capybaraFacts" class="capybara-facts">
+        <!-- Facts will be injected via JavaScript -->
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="hummus-loader">
+            <div class="hummus">
+                <div class="swirl"></div>
+            </div>
+            <p>Preparing something delicious...</p>
+        </div>
+    </div>
+
+    <!-- Modal for enlarged gallery images -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <img id="modalImage" src="" alt="Enlarged gallery image">
+            <div id="modalCaption"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/confetti.min.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
